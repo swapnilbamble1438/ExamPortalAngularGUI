@@ -1,0 +1,58 @@
+<div class="mt20 ml20">
+    <h1>Quizzes</h1>
+</div>
+<mat-card class="mt20" *ngFor="let q of quizzes">
+   
+        <mat-card-header>
+            <div mat-card-avatar class="cover" style="background-image:url('{{q.imagefile}}');"></div>
+            <!-- <img [src]="q.imagefile" height="50px"> -->
+            <mat-card-title>
+                {{q.title}}
+            </mat-card-title>
+            
+            <mat-card-subtitle>
+                {{q.category.title}}
+            </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <p [innerHTML]="q.description"></p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button [routerLink]="'/dashboard/viewquizquestions/' + q.quizid"  
+                mat-raised-button color="primary">Questions</button>
+            <button mat-stroked-button color="primary" class="ml20">Total Marks: {{q.maxmarks}}</button>
+            <button mat-stroked-button color="primary" class="ml20">Total Questions: {{q.numofquestions}}</button>
+            <button mat-flat-button color="primary" class="ml20">Attempts</button>
+            <mat-slide-toggle class="ml20"
+            name="active"
+            [(ngModel)]="q.active" required>
+               Publish Status
+           </mat-slide-toggle>
+            <button [routerLink]="'/dashboard/updatequiz/' + q.quizid" mat-flat-button color="primary" class="ml20">Update</button>
+            <button (click)="deleteQuiz(q.quizid)" mat-flat-button color="accent" class="ml20">Delete</button>
+        </mat-card-actions>
+
+</mat-card>
+
+
+<div class="col-md-12" *ngIf="quizzes.length == 0">
+    <mat-card> 
+        <mat-card-content>
+            <h1>No Data in this Category</h1>
+        </mat-card-content>
+    </mat-card>
+    <br>
+</div>
+
+<div class="container text-center mt20">
+    <button mat-raised-button color="primary"
+    [routerLink]="'/dashboard/addquiz'"
+    >Add New Quiz</button>
+</div>
+
+
+
+
+

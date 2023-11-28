@@ -1,0 +1,39 @@
+<mat-card>
+
+    <mat-action-list>
+
+        <div mat-subheader>Menu</div>
+        <button mat-list-item  [routerLink]="'/userdashboard'">
+            <mat-icon mat-list-icon>home</mat-icon>Home
+        </button>
+
+        <button mat-list-item [routerLink]="'/userdashboard/profile'">
+            <mat-icon mat-list-icon>account_circle</mat-icon>Profile
+        </button>
+
+
+        <button mat-list-item [routerLink]="'/userdashboard/loadquiz/0'">
+            <mat-icon mat-list-icon >quiz</mat-icon>All Quizzes
+        </button>
+
+        <div mat-subheader> <mat-icon mat-list-icon>category</mat-icon> Quiz Category</div>
+        <mat-action-list *ngFor="let c of categories">
+            <button [routerLink]="'/userdashboard/loadquiz/'+c.catid">
+                <mat-icon mat-list-icon>quiz</mat-icon>{{c.title}}
+            </button>
+        </mat-action-list>
+
+        
+        <button mat-list-item  [routerLink]="'/userdashboard/loadallresults'">
+            <mat-icon mat-list-icon>report</mat-icon>Results
+        </button>
+        
+        <button mat-list-item (click)="logoutUser()">
+            <mat-icon mat-list-icon>logout</mat-icon>Logout
+        </button>
+
+    </mat-action-list>
+
+  
+
+</mat-card>

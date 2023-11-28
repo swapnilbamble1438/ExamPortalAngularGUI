@@ -1,0 +1,53 @@
+
+<div class="container-fluid">
+    <div class="mt20 ml20">
+        <h1>Results</h1>
+    </div>    
+    <div class="row">
+
+
+                
+                    <div class="col-md-4" *ngFor="let r of results">
+                        <mat-card>
+                                <mat-card-header>
+                                    <mat-card-title>
+                                        <h1>  <img [src]="r.imagefile" height="60px"> {{r.title}}</h1>                  
+                                    </mat-card-title>
+                                </mat-card-header>
+                                <mat-card-content>
+                                    <h1>Exam Given Date: <b>{{r.date}}</b></h1>
+                                    <h1>Marks Got: <b>{{r.marksgot}}</b></h1>
+                                    <h1>Correct Answers: <b>{{r.correctanswers}}</b> </h1>
+                                    <h1>Questions Attempted: <b>{{r.attempted}}</b></h1>
+
+                                <div  class="container text-center mt20 mb20">
+                                   <button (click)="deleteResult(r.resultid)" mat-raised-button color="accent">Delete Result</button>
+                                </div>
+                                </mat-card-content>
+                                
+                        </mat-card>
+                        <br>
+                        <mat-divider></mat-divider>
+                    </div>
+                    
+
+                    <div  class="container text-center mt20 mb20">
+                                
+                        
+                        <button [routerLink]="'/userdashboard'"  mat-raised-button color="primary">Home</button>
+                
+                     </div>
+
+                
+
+                <div class="col-md-12" *ngIf="results.length == 0">
+                    <mat-card> 
+                        <mat-card-content>
+                            <h1>No Data in the Results</h1>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+       </div>
+       </div>
+                

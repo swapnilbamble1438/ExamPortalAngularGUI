@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+   
+    <a [routerLink]="'/'" md-fab mat-button>
+    <!--  <mat-icon>menu</mat-icon> -->
+    <img src="../../../assets/exam.png" height="60px">
+
+    </a>
+    
+    <a [routerLink]="'/'" mat-icon-button>Exam Portal</a>
+    
+    <span class="example-spacer"></span>
+    
+    <a *ngIf="!loggedIn"
+    [routerLink]="'/login'"
+     mat-icon-button class="example-icon mr30 " >
+     <!-- <mat-icon>login </mat-icon>-->
+     Login
+    </a>
+    
+    <a  *ngIf="!loggedIn"
+    [routerLink]="'/signup'"
+    mat-icon-button class="example-icon mr60" >
+      <!--<mat-icon>app_registration</mat-icon>-->
+      Register
+    </a>
+
+    <a  *ngIf="loggedIn"
+    [routerLink]="this.admorusr+'dashboard/profile'"
+     mat-icon-button class="example-icon mr170" >
+       <!--<mat-icon>app_registration</mat-icon>-->
+    Welcome {{uname}}
+     </a>
+
+
+    <a  *ngIf="loggedIn"
+   (click)="logoutUser()"
+    mat-icon-button class="example-icon mr60" >
+      <!--<mat-icon>app_registration</mat-icon>-->
+      Logout
+    </a>
+ 
+</mat-toolbar>

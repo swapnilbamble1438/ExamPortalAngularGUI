@@ -1,0 +1,26 @@
+
+<div class="row mt20 text-center">
+    <div class="col-md-6 offset-md-3">
+        <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        <h1>  <img [src]="result.imagefile" height="60px"> {{result.title}}</h1>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <h1>Exam Given Date: <b>{{result.date}}</b></h1>
+                    <h1>Marks Got: <b>{{result.marksgot}}</b></h1>
+                    <h1>Correct Answers: <b>{{result.correctanswers}}</b> </h1>
+                    <h1>Questions Attempted: <b>{{result.attempted}}</b></h1>
+                </mat-card-content>
+                
+                <div  class="container text-center mt20 mb20">
+                  
+                        <button (click)="printPage()" mat-raised-button color="primary">Print</button>
+                        <button class="ml20" [routerLink]="'/userdashboard'"  mat-raised-button color="accent">Home</button>
+                   
+                </div>
+           
+        </mat-card>
+    </div>
+</div>

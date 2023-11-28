@@ -1,0 +1,60 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3 text-center">
+
+            <mat-card>
+               
+                <div class="container text-center mt20">
+                    <img src="../../../assets/login.png" height="100px">
+                </div>
+            
+                <h1 class="text-center">Login Here !!</h1>
+             
+                <form (ngSubmit)="loginUser()">
+                    <!-- username field-->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>User Name</mat-label>
+                        <input type="text" matInput name="username"
+                        [(ngModel)] ="user.username"
+                        placeholder="Enter User Name" required>
+                        <mat-hint>User Name must be unique !!</mat-hint>
+                    </mat-form-field><br>
+
+                    <!-- password field-->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput name="password"
+                        [(ngModel)] ="user.password"
+                        placeholder="Enter Password" required>
+                    </mat-form-field><br>
+
+                        <div class="container text-center">
+                
+                            <button type="submit" mat-raised-button color="primary">Login</button>
+                            <button type="reset" class="ml20" mat-raised-button color="accent">Reset</button>
+                
+                        </div>
+
+
+                </form>
+                <br>
+                {{user | json }}
+                
+            </mat-card>
+            <mat-card>
+                <br>
+                <div style="color:darkred">
+                    <p>For Login in as a Admin</p>
+                    <p> Use </p>
+                    <p>User Name: admin</p>
+                    <p>Password: admin </p>
+                </div>
+            </mat-card>
+
+        </div>
+
+    </div>
+
+</div>

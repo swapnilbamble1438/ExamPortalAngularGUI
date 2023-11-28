@@ -1,0 +1,68 @@
+<!-- <mat-card>
+    <div class="mt20 ml20">
+        <h1>All Categories</h1>
+    </div>
+    <mat-list>
+       
+        <mat-list-item *ngFor="let c of categories">
+            <mat-icon mat-list-icon>category</mat-icon>
+            <div matListItemLine>{{c.title}}</div>
+            <div matListItemLine>{{c.description}}</div>
+            <div>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-list-item>
+        
+    </mat-list>
+
+    <div class="container text-center mb20">
+        <button mat-raised-button color="primary"
+        [routerLink]="'/dashboard/addcategory'"
+        >Add New Category</button>
+    </div>
+   
+</mat-card> -->
+<!--  ===========================================================        -->
+<div class="mt20 ml20">
+    <h1>Categories</h1>
+</div>
+<mat-card class="mt20" *ngFor="let c of categories">
+   
+        <mat-card-header>
+            
+            <mat-card-title>
+                <mat-icon mat-list-icon>category</mat-icon>
+                  {{c.title}}
+
+            </mat-card-title>
+            
+        </mat-card-header>
+
+        <mat-card-content>
+            <p [innerHTML]="c.description"></p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button [routerLink]="'/dashboard/viewquizzes/' + c.catid"  
+                mat-raised-button color="primary">Quizzes</button>
+          
+            <button [routerLink]="'/dashboard/updatecategory/' + c.catid" mat-flat-button color="primary" class="ml20">Update</button>
+            <button (click)="deleteCategory(c.catid)" mat-flat-button color="accent" class="ml20">Delete</button>
+        </mat-card-actions>
+
+</mat-card>
+
+<div class="col-md-12" *ngIf="categories.length == 0">
+    <mat-card> 
+        <mat-card-content>
+            <h1>There is not any Category created</h1>
+        </mat-card-content>
+    </mat-card>
+    <br>
+</div>
+
+<div class="container text-center mt20">
+    <button mat-raised-button color="primary"
+    [routerLink]="'/dashboard/addcategory'"
+    >Add New Category</button>
+</div>
