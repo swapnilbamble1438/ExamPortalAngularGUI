@@ -6,7 +6,17 @@
 
     </a>
     
-    <a [routerLink]="'/'" mat-icon-button>Exam Portal</a>
+    <a *ngIf="!loggedIn"
+    [routerLink]="'/'"
+     mat-icon-button>
+    Exam Portal
+    </a>
+
+    <a *ngIf="loggedIn"
+    [routerLink]="'/userdashboard'"
+     mat-icon-button>
+    Exam Portal
+    </a>
     
     <span class="example-spacer"></span>
     
